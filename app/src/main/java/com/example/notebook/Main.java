@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.ViewTreeObserver;
@@ -130,13 +129,13 @@ public class Main extends AppCompatActivity {
             }
             while (cursor.moveToNext());
         }
+        cursor.close();
+
         EditText text = findViewById(R.id.text);
         text.setText(result);
 
         Button b = findViewById(R.id.delete);
         ConstraintLayout constraintLayout = findViewById(R.id.record);
-
-        Log.i("Identificator", String.valueOf(identificator));
         if(identificator == 0){
             constraintLayout.removeView(b);
         }
